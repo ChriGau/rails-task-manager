@@ -1,0 +1,15 @@
+<h1>Let's list all the tasks</h1>
+
+<ul>
+  <%= @tasks.each do |t| %>
+    <li>
+      <strong><%= t.name.upcase %></strong> , Duration = <%= t.duration %> <br>
+      <%= link_to "Get details", task_path(t) %>
+      <%= link_to "Edit", edit_task_path(t) %>
+      <%= link_to "Delete", task_path(t), method: :delete, data: {confirm: "Are you sure ?"} %>
+      <br><br>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create new task", new_task_path %>
